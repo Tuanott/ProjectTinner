@@ -51,6 +51,8 @@ h2 {
     border-radius: 30px;
     border: solid 2px rgb(121, 119, 119);
     margin: 6px;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 .secondary-button:hover {
@@ -123,44 +125,65 @@ nav .logo-container .logo {
     position: absolute;
     left: 0;
     right: 0;
-    top: 40px;
+    top: 0;
+    margin-top: 0%;
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-    height: 70%;
-    width: 40%;
+    height: 100%;
+    width: 100%;
     background-color: rgb(252, 215, 215);
     border-radius: 10px;
-    padding: 30px;
+    
     background: transparent;
     backdrop-filter:blur(15px);
-    border : 0.1px solid rgb(255,255,255);
+    
 }
 
-.auth-modal .close-icon {
-    float: right;
+.auth-modal .backbutton {
+    margin-top: 5%;
+    padding-right: 80%;
+
 }
 
 .auth-modal form {
     display: flex;
     flex-direction: column;
+    margin: 5%;
+    
     
 }
 
 .auth-modal input[type=password],
 .auth-modal input[type=email] {
-    padding: 5px;
-    margin: 4px;
+    
+    padding: 10px;
+    margin: 8px;
     font-size: 8px;
-
+    border-radius: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
     
 
 }
 
 /*-------- OnBoarding Page --------*/
 .onboarding {
+    position: fixed;
+    height: 100%;
+    width: 100%;
     border-top: solid 1px rgb(0, 0, 0);
-    background-color: rgb(234, 221, 243);
+    background: linear-gradient(45deg, rgb(152, 116, 255), rgb(224, 172, 203));
+    
+    color: aliceblue;
+    font-size: medium;
+}
+
+.backbutton2 {
+    margin-top: 5%;
+    margin-left: 10%;
+    float: left;
+
 }
 
 .onboarding form {
@@ -171,15 +194,16 @@ nav .logo-container .logo {
 .onboarding form section {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    width: 35%;
+    padding: 0px;
+    width: 45%;
+    height: 100%;
 
     text-align: start;
 }
 
 .onboarding form input {
-    padding: 10px 15px;
-    margin: 10px 2px;
+    padding: 8px 20px;
+    margin: 5px 2px;
     font-size: 15px;
     border: solid 2px rgb(0, 0, 0);
     border-radius: 10px;
@@ -187,6 +211,7 @@ nav .logo-container .logo {
 
 .onboarding form label {
     margin: 10px 0;
+    
 }
 
 .onboarding form .multiple-input-container {
@@ -207,7 +232,7 @@ nav .logo-container .logo {
 
 .onboarding form .multiple-input-container label {
     padding: 10px;
-    border: solid 2px rgb(144, 144, 144);
+    border: solid 2px rgb(0, 0, 0);
     border-radius: 10px;
     transition: all 0.3s;
     margin-right: 10px;
@@ -222,15 +247,19 @@ nav .logo-container .logo {
 }
 
 .onboarding form input[type=radio]:checked + label {
-    border: solid 2px rgb(221, 39, 22);
+    border: solid 2px rgb(255, 255, 255);
+    background-color: #ed3ed0;
 }
 
 .onboarding form input[type=submit]:hover {
-    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #f032b4;
 }
 
 .onboarding form input[type=submit]:active {
     background-color: rgb(226, 115, 115);
+    
 }
 
 .onboarding form .photo-container img {
@@ -246,6 +275,7 @@ nav .logo-container .logo {
 .dashboard {
     display: flex;
     justify-content: space-between;
+    background: linear-gradient(45deg, rgb(152, 116, 255), rgb(224, 172, 203));
 }
 
 .dashboard .swipe-container {
@@ -263,13 +293,13 @@ nav .logo-container .logo {
 }
 
 .dashboard .card-container {
-    width: 400px;
-    height: 650px;
+    width: 360px;
+    height: 585px;
 }
 
 .card {
-    width: 400px;
-    height: 650px;
+    width: 360px;
+    height: 585px;
     border-radius: 30px;
     background-size: cover;
     background-position: center;
@@ -292,8 +322,8 @@ nav .logo-container .logo {
 }
 
 .card .box {
-    width: 400px;
-    height: 140px;
+    width: 360px;
+    height: 130px;
     background-color: rgba(0, 0, 0, 0.5);
     
     position: fixed;
@@ -305,6 +335,13 @@ nav .logo-container .logo {
     position: absolute;
     bottom: 0;
     padding: 10px;
+}
+
+.grid-containerdash{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 30px;
+
 }
 
 /*-------- Chat Container --------*/
@@ -319,7 +356,7 @@ nav .logo-container .logo {
 }
 
 .chat-container .chat-container-header {
-    background: linear-gradient(45deg, rgb(204, 82, 245), rgb(255, 89, 64));
+    background: linear-gradient(45deg, rgb(152, 116, 255), rgb(224, 172, 203));
     height: 100px;
     display: flex;
     justify-content: space-between;
@@ -348,11 +385,11 @@ nav .logo-container .logo {
 }
 
 .img-container {
-    height: 30px;
-    width: 30px;
-    border-radius: 15px;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
     overflow: hidden;
-    display: grid;
+    
     grid-template-columns: auto auto ;
     grid-gap: 10px;
 
@@ -363,19 +400,57 @@ nav .logo-container .logo {
 }
 
 /*-------- Chat Display --------*/
-.chat-display,
 .matches-display {
     padding: 20px;
     height: 55vh;
     overflow-y: auto;
     
+    
 }
+.grid-container {
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: 50px auto;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid rgba(224, 223, 223, 0.8);
+    
+}
+.grid-container2 {
+    display: grid;
+    column-gap: 50px;
+    background-color: #ffffff;
+    padding: 10px;
+    
+}
+.grid-container3 {
+    display: grid;
+    margin-top: 15px;
+    background-color: #ffffff;
+    float: left;  
+}
+
+
+.chat-display{
+    padding: 20px;
+    height: 55vh;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+}
+
+
+
 
 /*-------- Chat Input --------*/
 .chat-input {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: auto 5%;
+    padding: 30px;
+    display: grid;
+    flex-direction: row;
+    grid-gap: 10px;
+    
 }
 
 .button1{

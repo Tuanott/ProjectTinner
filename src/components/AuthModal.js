@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
-
+import button from '../images/button1.png'
 
 const AuthModal = ({ setShowModal,  isSignUp }) => {
     const [email, setEmail] = useState(null)
@@ -29,7 +29,7 @@ const AuthModal = ({ setShowModal,  isSignUp }) => {
                 return
             }
 
-            const response = await axios.post(`http://52.65.52.76:8000/${isSignUp ? 'signup' : 'login'}`, { email, password })
+            const response = await axios.post(`https://52.65.52.76:8000/${isSignUp ? 'signup' : 'login'}`, { email, password })
 
             setCookie('AuthToken', response.data.token)
             setCookie('UserId', response.data.userId)
@@ -48,7 +48,9 @@ const AuthModal = ({ setShowModal,  isSignUp }) => {
 
     return (
         <div className="auth-modal">
-            <div className="close-icon" onClick={handleClick}>ⓧ</div>
+            <div className="backbutton">
+                <img src={button} alt="button" width="64px" height="64px" onClick={handleClick} />
+            </div>
 
             <h2>{isSignUp ? 'CREATE ACCOUNT': 'LOG IN'}</h2>
             
@@ -81,7 +83,7 @@ const AuthModal = ({ setShowModal,  isSignUp }) => {
                 <p>{error}</p>
             </form>
 
-            <hr/>
+       
 
         </div>
     )

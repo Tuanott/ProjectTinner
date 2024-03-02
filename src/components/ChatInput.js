@@ -1,6 +1,6 @@
 import { useState} from 'react'
 import axios from 'axios'
-
+import sendlogo from '../images/sendlogo.png'
 const ChatInput = ({ user, clickedUser, getUserMessages, getClickedUsersMessages }) => {
     const [textArea, setTextArea] = useState("")
     const userId = user?.user_id
@@ -15,7 +15,7 @@ const ChatInput = ({ user, clickedUser, getUserMessages, getClickedUsersMessages
         }
 
         try {
-            await axios.post('http://52.65.52.76:8000/message', { message })
+            await axios.post('https://52.65.52.76:8000/message', { message })
             getUserMessages()
             getClickedUsersMessages()
             setTextArea("")
@@ -26,10 +26,16 @@ const ChatInput = ({ user, clickedUser, getUserMessages, getClickedUsersMessages
 
 
     return (
-        <div className="chat-input">
-            <textarea value={textArea} onChange={(e) => setTextArea(e.target.value)}/>
-            <button className="secondary-button" onClick={addMessage}>Send</button>
-        </div>
+            <div className="chat-input">
+                
+                <textarea value={textArea} onChange={(e) => setTextArea(e.target.value)}/>
+                
+
+                 <img src={sendlogo} alt="sentlogo" width="50px" height="50px" onClick={addMessage} />
+               
+                
+            </div>
+            
     )
 }
 

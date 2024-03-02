@@ -3,6 +3,8 @@ import {useState} from 'react'
 import {useCookies} from 'react-cookie'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import logo from '../images/Tinnerlogo.png'
+import button from '../images/button1.png'
 
 const OnBoarding = () => {
     const [cookies, setCookie, removeCookie] = useCookies(null)
@@ -27,7 +29,7 @@ const OnBoarding = () => {
         console.log('submitted')
         e.preventDefault()
         try {
-            const response = await axios.put('http://52.65.52.76:8000/user', {formData})
+            const response = await axios.put('https://52.65.52.76:8000/user', {formData})
             console.log(response)
             const success = response.status === 200
             if (success) navigate('/dashboard')
@@ -56,10 +58,12 @@ const OnBoarding = () => {
                 }}
                 showModal={false}
             />
-
+            
+             
             <div className="onboarding">
+                
+                <img src={logo} alt="Logo" width="330spx" height="120px" />
                 <h2>CREATE ACCOUNT</h2>
-
                 <form onSubmit={handleSubmit}>
                     <section>
                         <label htmlFor="first_name">First Name</label>
@@ -126,15 +130,7 @@ const OnBoarding = () => {
                                 checked={formData.gender_identity === "woman"}
                             />
                             <label htmlFor="woman-gender-identity">Woman</label>
-                            <input
-                                id="more-gender-identity"
-                                type="radio"
-                                name="gender_identity"
-                                value="more"
-                                onChange={handleChange}
-                                checked={formData.gender_identity === "more"}
-                            />
-                            <label htmlFor="more-gender-identity">More</label>
+                            
                         </div>
 
 
@@ -159,15 +155,7 @@ const OnBoarding = () => {
                                 checked={formData.gender_interest === "woman"}
                             />
                             <label htmlFor="woman-gender-interest">Woman</label>
-                            <input
-                                id="everyone-gender-interest"
-                                type="radio"
-                                name="gender_interest"
-                                value="everyone"
-                                onChange={handleChange}
-                                checked={formData.gender_interest === "everyone"}
-                            />
-                            <label htmlFor="everyone-gender-interest">Everyone</label>
+                            
 
                         </div>
 
@@ -192,6 +180,7 @@ const OnBoarding = () => {
                             type="url"
                             name="url"
                             id="url"
+                            placeholder="URL"
                             onChange={handleChange}
                             required={true}
                         />

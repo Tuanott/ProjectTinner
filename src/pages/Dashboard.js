@@ -5,6 +5,10 @@ import {useCookies} from 'react-cookie'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import logoutlogo from '../images/logoutlogo.png'
+import messagelogo from '../images/messagelogo.png'
+import profilelogo from '../images/profilelogo.png'
+
 
 const Dashboard = () => {
     const [user, setUser] = useState(null)
@@ -12,12 +16,19 @@ const Dashboard = () => {
     const [lastDirection, setLastDirection] = useState()
     const [cookies, setCookie, removeCookie] = useCookies(['user'])
 
+    const logout = () => {
+        removeCookie('UserId', cookies.UserId)
+        removeCookie('AuthToken', cookies.AuthToken)
+        window.location.reload()
+        
+    }
+
     const userId = cookies.UserId
 
 
     const getUser = async () => {
         try {
-            const response = await axios.get('http://52.65.52.76:8000/user', {
+            const response = await axios.get('https://52.65.52.76:8000/user', {
                 params: {userId}
             })
             setUser(response.data)
@@ -27,7 +38,7 @@ const Dashboard = () => {
     }
     const getGenderedUsers = async () => {
         try {
-            const response = await axios.get('http://52.65.52.76:8000/gendered-users', {
+            const response = await axios.get('https://52.65.52.76:8000/gendered-users', {
                 params: {gender: user?.gender_interest}
             })
             setGenderedUsers(response.data)
@@ -49,7 +60,7 @@ const Dashboard = () => {
 
     const updateMatches = async (matchedUserId) => {
         try {
-            await axios.put('http://52.65.52.76:8000/addmatch', {
+            await axios.put('https://52.65.52.76:8000/addmatch', {
                 userId,
                 matchedUserId
             })
@@ -71,13 +82,14 @@ const Dashboard = () => {
     const outOfFrame = (name) => {
         console.log(name + ' left the screen!')
     }
-
+    
     const matchedUserIds = user?.matches.map(({user_id}) => user_id).concat(userId)
 
     const filteredGenderedUsers = genderedUsers?.filter(genderedUser => !matchedUserIds.includes(genderedUser.user_id))
     
 
     console.log('filteredGenderedUsers ', filteredGenderedUsers)
+
     return (
         <>
             {user &&
@@ -118,7 +130,13 @@ const Dashboard = () => {
                         <div classsName="swipe-info">
                             {lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}
                         </div> 
-                        <button classname='button1' onClick={() => navigate('/chatboard')}>Go to Chat</button>
+                        <div className='grid-containerdash'>
+                        <img src={logoutlogo} alt="logoutlogo" width="64px" height="64px" onClick={logout} />
+                        <img src={messagelogo} alt="messagelogo" width="64px" height="64px" onClick={() => navigate('/chatboard')} />
+                        <img src={profilelogo} alt="profilelogo" width="64px" height="64px"  />
+                        
+                        </div>
+                        
                     </div>
                 </div>
              </div>}

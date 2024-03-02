@@ -28,8 +28,6 @@ const Home = () => {
                 
                 <img src={logo} alt="Logo" width="300px" height="120px" />
                 
-                <h1 className="primary-title">อยากเจอคนที่ฮีลใจ</h1>
-                
                 <Nav
                 authToken={authToken}
                 minimal={false}

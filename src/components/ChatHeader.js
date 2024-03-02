@@ -1,6 +1,7 @@
 import { useCookies } from 'react-cookie'
 import { useNavigate } from 'react-router-dom'
 import Dashboard from '../pages/Dashboard'
+import backlogo from '../images/backlogo.png'
 
 const ChatHeader = ({ user }) => {
     const [ cookies, setCookie, removeCookie ] = useCookies(['user'])
@@ -22,7 +23,7 @@ const ChatHeader = ({ user }) => {
                 </div>
                 <h3>{user.first_name}</h3>
             </div>
-            <i className="log-out-icon" onClick={() => navigate('/Dashboard',{replace: true})}>⇦</i>
+            <img src={backlogo} alt="backlogo" className="log-out-icon" width="40px" height="40px" onClick={() => navigate('/Dashboard',{replace: true})} />
         </div>
     )
 }
