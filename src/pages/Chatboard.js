@@ -14,7 +14,7 @@ const Dashboard = () => {
 
     const getUser = async () => {
         try {
-            const response = await axios.get('https://52.65.52.76:8000/user', {
+            const response = await axios.get('http://52.65.52.76:8000/user', {
                 params: {userId}
             })
             setUser(response.data)
@@ -24,7 +24,7 @@ const Dashboard = () => {
     }
     const getGenderedUsers = async () => {
         try {
-            const response = await axios.get('https://52.65.52.76:8000/gendered-users', {
+            const response = await axios.get('http://52.65.52.76:8000/gendered-users', {
                 params: {gender: user?.gender_interest}
             })
             setGenderedUsers(response.data)
@@ -46,7 +46,7 @@ const Dashboard = () => {
 
     const updateMatches = async (matchedUserId) => {
         try {
-            await axios.put('https://52.65.52.76:8000/addmatch', {
+            await axios.put('http://52.65.52.76:8000/addmatch', {
                 userId,
                 matchedUserId
             })
