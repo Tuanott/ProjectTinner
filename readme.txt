@@ -15,10 +15,10 @@ Test login for chat = poj@test.com
 ----------------------------------------------------------------------------
 
 URL photo -> Man   = https://i.imgur.com/Lnt9K7l.jpeg
-					 https://i.imgur.com/Gg6BpGn.jpeg
+		     https://i.imgur.com/Gg6BpGn.jpeg
 					 
-			 Woman = https://i.imgur.com/H07Fxdh.jpeg
-					 https://i.imgur.com/oPj4A8u.jpeg
+	     Woman = https://i.imgur.com/H07Fxdh.jpeg
+		     https://i.imgur.com/oPj4A8u.jpeg
 					 
 Photo Ref = https://imgur.com/gallery/eC1tMto
 
