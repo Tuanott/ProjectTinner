@@ -44,36 +44,7 @@ const Dashboard = () => {
         }
     }, [user])
 
-    const updateMatches = async (matchedUserId) => {
-        try {
-            await axios.put('http://52.65.52.76:8000/addmatch', {
-                userId,
-                matchedUserId
-            })
-            getUser()
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
-
-    const swiped = (direction, swipedUserId) => {
-        if (direction === 'right') {
-            updateMatches(swipedUserId)
-        }
-        setLastDirection(direction)
-    }
-
-    const outOfFrame = (name) => {
-        console.log(name + ' left the screen!')
-    }
-
-    const matchedUserIds = user?.matches.map(({user_id}) => user_id).concat(userId)
-
-    const filteredGenderedUsers = genderedUsers?.filter(genderedUser => !matchedUserIds.includes(genderedUser.user_id))
-    
-
-    console.log('filteredGenderedUsers ', filteredGenderedUsers)
+ 
     return (
         <>
             {user &&
